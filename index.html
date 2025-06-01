@@ -19,6 +19,8 @@
   <p>Este botão simula um visitante chamando a Casa 7:</p>
   <button onclick="enviarNotificacao()">Chamar Casa 7</button>
 
+  <audio id="alerta" src="som.mp3" preload="auto"></audio>
+
   <script>
     function enviarNotificacao() {
       if ('Notification' in window && Notification.permission === 'granted') {
@@ -26,12 +28,12 @@
           body: 'Alguém está no portão querendo falar com você.',
           icon: 'https://img.icons8.com/emoji/48/door-emoji.png'
         });
+        document.getElementById("alerta").play();
       } else {
         alert("Permissão de notificação não concedida!");
       }
     }
 
-    // Solicita permissão assim que a página carregar
     window.onload = function() {
       if ('Notification' in window) {
         Notification.requestPermission();
