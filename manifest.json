@@ -1,0 +1,15 @@
+{
+  "name": "Interfone Push",
+  "short_name": "Interfone",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#007bff",
+  "icons": [
+    {
+      "src": "https://img.icons8.com/emoji/96/door-emoji.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ]
+}
