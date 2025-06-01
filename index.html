@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interfone com Push</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 30px; background: #f4f4f4; }
+    button {
+      background: #007bff; color: white; border: none;
+      padding: 12px 24px; font-size: 18px;
+      border-radius: 8px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interfone com Notificação</h1>
+  <p>Este botão simula um visitante chamando a Casa 7:</p>
+  <button onclick="enviarNotificacao()">Chamar Casa 7</button>
+
+  <script>
+    function enviarNotificacao() {
+      if ('Notification' in window && Notification.permission === 'granted') {
+        new Notification('Interfone: Casa 7', {
+          body: 'Alguém está no portão querendo falar com você.',
+          icon: 'https://img.icons8.com/emoji/48/door-emoji.png'
+        });
+      } else {
+        alert("Permissão de notificação não concedida!");
+      }
+    }
+
+    // Solicita permissão assim que a página carregar
+    window.onload = function() {
+      if ('Notification' in window) {
+        Notification.requestPermission();
+      }
+    }
+  </script>
+</body>
+</html>
